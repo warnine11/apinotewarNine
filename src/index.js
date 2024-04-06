@@ -43,7 +43,7 @@ async function fetchAndDisplayNotes() {
         <h2>${note.title}</h2>
         <p>${note.body}</p>
         <p>Created at: ${createdAt}</p> <!-- Tampilkan tanggal pembuatan catatan -->
-        <button onclick="deleteNote('${note.id}')">Delete</button>
+        <button class="delete-button" data-note-id="${note.id}">Delete</button> <!-- Perbaikan: Tambahkan class dan atribut data-note-id -->
       `;
       notesList.appendChild(noteElement);
     });
@@ -71,6 +71,14 @@ async function createNote(title, body) {
     handleHTTPError(error);
   }
 }
+
+// Perbaikan: Tambahkan event listener untuk menangani klik tombol "Delete"
+document.addEventListener('click', function(event) {
+  if (event.target && event.target.tagName === 'BUTTON' && event.target.classList.contains('delete-button')) {
+    const noteId = event.target.dataset.noteId;
+    deleteNote(noteId);
+  }
+});
 
 async function deleteNote(noteId) {
   try {
@@ -105,8 +113,6 @@ noteForm.addEventListener('submit', function(event) {
     alert('Silakan masukkan judul dan isi catatan.');
   }
 });
-
-
 
 // Fetch and display notes when the page loads
 window.addEventListener('load', fetchAndDisplayNotes);

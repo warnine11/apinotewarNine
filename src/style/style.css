@@ -1,0 +1,94 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #b8d7f6; /* Ubah warna latar belakang */
+}
+
+header {
+  background-color: #343a40; /* Sesuaikan warna header */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Menggunakan auto-fit */
+  grid-gap: 20px;
+  justify-content: center; /* Menengahkan elemen-elemen dalam grid */
+}
+
+.note {
+  max-width: 100%; /* Menetapkan lebar maksimum untuk elemen catatan */
+}
+
+form {
+  margin-top: 20px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ced4da; /* Tambahkan border untuk input */
+  border-radius: 5px; /* Agar input memiliki sudut yang lebih halus */
+  box-sizing: border-box; /* Pastikan padding tidak memperbesar lebar input */
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Sesuaikan warna tombol */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* Agar tombol memiliki sudut yang lebih halus */
+}
+
+button:hover {
+  background-color: #0056b3; /* Sesuaikan warna hover tombol */
+}
+
+.note {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff; /* Ubah warna latar belakang catatan */
+}
+
+footer {
+  background-color: #343a40; /* Sesuaikan warna footer */
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (max-width: 576px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+#notes-list {
+  max-height: 450px; /* Tentukan ketinggian maksimum yang diinginkan */
+  overflow-y: auto; /* Aktifkan overflow-y untuk memungkinkan scrolling saat konten melebihi ketinggian maksimum */
+}
+.note {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #c9d0f5; /* Ubah warna latar belakang catatan */
+  margin-bottom: 10px; /* Tambahkan margin bottom untuk memberikan jarak antara setiap catatan */
+}
